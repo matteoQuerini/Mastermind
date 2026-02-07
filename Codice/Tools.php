@@ -23,4 +23,16 @@ function printArray($array){
 $randomColors = getRandomColor($arrayColori);
 printArray($randomColors);
 /*---------------------------------------------------------------------------------------*/ 
+/*funzione che controlla se i colori della risposta dell'utente sono presenti nell'array
+e in caso se sono nella posizione corretta*/
+function checkUserAnswer($randomColors , $UserAnswer){
+    for($j = 0; $j < 4; $j++){
+    for($i = 0; $i < 4; $i++){
+     if($randomColors[$i] ==  $UserAnswer[$j]){
+        
+     }
+    }
+}
+
+}
 ?>
