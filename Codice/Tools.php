@@ -20,19 +20,30 @@ function printArray($array){
     }
 }
 
-$randomColors = getRandomColor($arrayColori);
-printArray($randomColors);
 /*---------------------------------------------------------------------------------------*/ 
 /*funzione che controlla se i colori della risposta dell'utente sono presenti nell'array
 e in caso se sono nella posizione corretta*/
-function checkUserAnswer($randomColors , $UserAnswer){
-    for($j = 0; $j < 4; $j++){
-    for($i = 0; $i < 4; $i++){
-     if($randomColors[$i] ==  $UserAnswer[$j]){
-        
-     }
+/* per ora fa solo il check delle presenze*/
+function checkPresence($randomColors, $userAnswer) {
+    $presenti = 0;
+    $tempSegreto = $randomColors;
+
+    for ($i = 0; $i < 4; $i++) {
+        for ($j = 0; $j < 4; $j++) {
+            if ($userAnswer[$i] === $tempSegreto[$j]) {
+                $presenti++;
+                $tempSegreto[$j] = null;
+                break; 
+            }
+        }
     }
+
+    return $presenti;
 }
 
-}
+$randomColors = getRandomColor($arrayColori);
+$userGuess = array("rosso", "rosso", "blu", "giallo");
+
+$totalePresenti = checkPresence($randomColors, $userGuess);
 ?>
+
