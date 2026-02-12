@@ -71,3 +71,89 @@ body {
     color: #16213e;
 }
 
+.login-container {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.login-card {
+    width: 100%;
+    max-width: 400px;
+    background-color: #16213e;
+    border: 2px solid #00d4ff;
+    border-radius: 10px;
+    padding: 40px;
+}
+
+.login-card h2 {
+    text-align: center;
+    margin-bottom: 10px;
+    color: #00d4ff;
+    font-size: 2rem;
+}
+
+.login-card p {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #999;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    color: #ccc;
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="password"]{
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #00d4ff;
+    border-radius: 5px;
+    background-color: #0f3460;
+    color: #fff;
+    font-size: 1rem;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+    outline: none;
+    border-color: #ff006e;
+    background-color: #1a1a2e;
+}
+
+input[type="submit"] {
+    padding: 10px;
+    background-color: #ff006e;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+input[type="submit"]:hover {
+    background-color: #cc0056;
+}
+
+.credentials {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 0.9rem;
+    color: #999;
+}
