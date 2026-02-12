@@ -1,6 +1,11 @@
 <?php
 session_start();
 
+if (!isset($_SESSION['guess'])) {
+    $_SESSION['guess'] = [];
+}
+
+
 // esegue un controllo sul parametro action
 //se vale reset significa che l'utente ha cliccato su quel pulsante
 //ed imposta l'array vuoto riportando l'urente a dashboard
