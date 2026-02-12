@@ -20,30 +20,52 @@ function printArray($array){
     }
 }
 
-/*---------------------------------------------------------------------------------------*/ 
-/*funzione che controlla se i colori della risposta dell'utente sono presenti nell'array
-e in caso se sono nella posizione corretta*/
-/* per ora fa solo il check delle presenze*/
-function checkPresence($randomColors, $userAnswer) {
-    $presenti = 0;
-    $tempSegreto = $randomColors;
+/*funzione che controlla se i colori sono presenti nell'array e se sono nella posizione corretta*/
+function checkGuess($randomColors, $userAnswer) {
+    $posizioniCorrette = 0; 
+    $soloPresenti = 0;      
 
+    $tempSegreto = $randomColors;
+    $tempUser = $userAnswer;
+
+    /* controllo se i colori sono nella posizione corretta*/
+    /*in caso assegno valore null alla posizione dell'array per evitare il conteggio nella seconda fase*/
     for ($i = 0; $i < 4; $i++) {
+        if ($tempUser[$i] === $tempSegreto[$i]) {
+            $posizioniCorrette++;
+        
+            $tempSegreto[$i] = null;
+            $tempUser[$i] = null;
+        }
+    }
+
+    /*controllo se i colori sono presenti nell'array da indovinare ma non nella posizione giusta*/
+    for ($i = 0; $i < 4; $i++) {
+        /* Salta se l'elemento è già stato verificato*/
+        if ($tempUser[$i] === null) continue;
+
         for ($j = 0; $j < 4; $j++) {
-            if ($userAnswer[$i] === $tempSegreto[$j]) {
-                $presenti++;
-                $tempSegreto[$j] = null;
+            if ($tempSegreto[$j] !== null && $tempUser[$i] === $tempSegreto[$j]) {
+                $soloPresenti++;
+                $tempSegreto[$j] = null; /*assegno a null per escluderlo dalla ricerca*/ 
                 break; 
             }
         }
     }
 
-    return $presenti;
+    return [
+        'corretti' => $posizioniCorrette,
+        'presenti' => $soloPresenti
+    ];
 }
 
 $randomColors = getRandomColor($arrayColori);
 $userGuess = array("rosso", "rosso", "blu", "giallo");
 
-$totalePresenti = checkPresence($randomColors, $userGuess);
+$risultato = checkGuess($randomColors, $userGuess);
+echo "Posizioni corrette: " . $risultato['corretti'] . "\n";
+echo "Colori presenti (posizione sbagliata): " . $risultato['presenti'];
+
 ?>
+
 
