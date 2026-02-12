@@ -1,6 +1,6 @@
 <?php
 /*funzione per la generazione casuale dei colori*/ 
-$arrayColori = array("", "verde", "blu", "giallo");
+$arrayColori = array("rosso", "verde", "blu", "giallo");
 
 function getRandomColor($arrayColori){
     $colori_da_Indovinare = array();
@@ -57,6 +57,7 @@ function checkGuess($randomColors, $userAnswer) {
 
 
 ?>
+
 
 
 
