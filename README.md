@@ -33,3 +33,8 @@ Mastermind è un gioco di logica in cui un giocatore crea una combinazione segre
 -Simone Furlano: Si occuperà della parte grafica e dell'iterazione con l'utente tramite la scrittura del codice HTML e CSS;
 
 -Riccardo Graffi:  Si occuperà assieme a Furlano della parte grafica e dell'iterazione con l'utente tramite la scrittura del codice HTML e CSS;
+
+## Intelligenza artificiale
+Uso dell'AI per capire come capire quale pulsante avesse cliccato l'utente. abbiamo usato il tag from per tutti i bottoni del file dashboard.php passando i valori definiti nel value del tag input al file definito nell'action(in questo caso inputManagement.php) in modo da gestire l'input dell'utente senza l'uso di javascript.
+
+Ulteriore uso per l'organizazione del file README.md in modo da averlo piu schematico e leggibile.
