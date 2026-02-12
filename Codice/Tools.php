@@ -54,14 +54,10 @@ function checkGuess($randomColors, $userAnswer) {
     ];
 }
 
-$randomColors = getRandomColor($arrayColori);
 
-
-$risultato = checkGuess($randomColors, $userGuess);
-echo "Posizioni corrette: " . $risultato['corretti'] . "\n";
-echo "Colori presenti (posizione sbagliata): " . $risultato['presenti'];
 
 ?>
+
 
 
 
