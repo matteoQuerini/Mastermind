@@ -30,6 +30,9 @@ if (!isset($_SESSION['storico'])) { $_SESSION['storico'] = []; }
                 </form>
                 <button class="logout-btn" onclick="window.location.href='logout.php';">Esci</button>
             </div>
+            <form action="inputManagement.php" method="post">
+                    <button type="submit" name="action" value="undo" class="undo-btn">Annulla Ultimo</button>
+            </form>
         </div>
 
         <div class="campo">
