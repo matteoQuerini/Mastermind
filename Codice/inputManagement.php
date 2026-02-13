@@ -1,34 +1,50 @@
 <?php
 session_start();
+require_once 'tools.php'; 
 
-if (!isset($_SESSION['guess'])) {
+// 1. Inizializzazione del gioco
+if (!isset($_SESSION['segreto'])) {
+    $_SESSION['segreto'] = getRandomColor($arrayColori);
     $_SESSION['guess'] = [];
+    $_SESSION['storico'] = [];
 }
 
-
-// esegue un controllo sul parametro action
-//se vale reset significa che l'utente ha cliccato su quel pulsante
-//ed imposta l'array vuoto riportando l'urente a dashboard
+// 2. Gestione del RESET
 if (isset($_POST['action']) && $_POST['action'] === 'reset') {
     $_SESSION['guess'] = [];
+    $_SESSION['storico'] = [];
+    $_SESSION['segreto'] = getRandomColor($arrayColori); // Genera un nuovo codice
     header("Location: dashboard.php");
     exit;
 }
 
-
-//se in color c'è un valore significa che l'utente ha cliccato uno dei pulsanti
+// 3. Gestione dell'inserimento COLORE
 if (isset($_POST['colore'])) {
-
-    //operazioni di sanificazione dell'input impostando in miniscolo e togliendo spazzi
     $colore = strtolower(trim($_POST['colore']));
 
-    if (($colore === 'rosso' || $colore === 'verde' || $colore === 'blu' || $colore === 'giallo') && count($_SESSION['guess']) < 4) {
-        //[] è l'operatore di push
+    // Verifica che il colore sia valido e che non abbiamo già 4 colori
+    if (in_array($colore, $arrayColori) && count($_SESSION['guess']) < 4) {
         $_SESSION['guess'][] = $colore;
     }
+
+    // 4. CONTROLLO AUTOMATICO: se arriviamo a 4 colori, verifichiamo il tentativo
+    if (count($_SESSION['guess']) === 4) {
+        $risultato = checkGuess($_SESSION['segreto'], $_SESSION['guess']);
+        
+        // Salviamo il tentativo e il risultato nello storico
+        $_SESSION['storico'][] = [
+            'combinazione' => $_SESSION['guess'],
+            'punteggio' => $risultato
+        ];
+
+        // Svuotiamo l'array temporaneo per il prossimo tentativo
+        $_SESSION['guess'] = [];
+    }
+
     header("Location: dashboard.php");
     exit;
 }
 
+// Se si accede al file senza POST, torna in dashboard
 header("Location: dashboard.php");
 exit;
