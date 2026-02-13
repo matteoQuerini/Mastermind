@@ -13,12 +13,7 @@ function getRandomColor($arrayColori){
     return $colori_da_Indovinare;
 }
 
-/* funzione di print colori necessaria in fase di sviluppo - temporanea*/
-function printArray($array){
-    for($i = 0; $i < count($array); $i++){
-        echo $array[$i] . " ";
-    }
-}
+
 
 /*funzione che controlla se i colori sono presenti nell'array e se sono nella posizione corretta*/
 function checkGuess($randomColors, $userAnswer) {
@@ -59,13 +54,11 @@ function checkGuess($randomColors, $userAnswer) {
     ];
 }
 
-$randomColors = getRandomColor($arrayColori);
-$userGuess = array("rosso", "rosso", "blu", "giallo");
 
-$risultato = checkGuess($randomColors, $userGuess);
-echo "Posizioni corrette: " . $risultato['corretti'] . "\n";
-echo "Colori presenti (posizione sbagliata): " . $risultato['presenti'];
 
 ?>
+
+
+
 
 
