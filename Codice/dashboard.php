@@ -32,14 +32,14 @@ if (!isset($_SESSION['storico'])) {
                 <form action="inputManagement.php" method="post">
                     <button type="submit" name="action" value="reset" class="reset-btn">Nuova Partita</button>
                 </form>
+
                 <button class="logout-btn" onclick="window.location.href='logout.php';">Esci</button>
+
                 <form action="inputManagement.php" method="post">
-                <button type="submit" name="action" value="undo" class="undo-btn">Annulla Ultimo</button>
+                    <button type="submit" name="action" value="undo" class="undo-btn">Annulla Ultimo</button>
                 </form>
             </div>
-            <form action="inputManagement.php" method="post">
-                    <button type="submit" name="action" value="undo" class="undo-btn">Annulla Ultimo</button>
-            </form>
+          
         </div>
 
         <div class="campo">

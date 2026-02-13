@@ -279,6 +279,8 @@ h1, h3 {
     cursor: pointer;
 }
 
+
+
 .exit {
     display: none;
 }
@@ -334,11 +336,3 @@ h1, h3 {
     background-color: #cc0056;
 }
 
-.undo-btn{
-
-    position: absolute;
-    top: 53%;
-    right: 38%;
-
-
-}
