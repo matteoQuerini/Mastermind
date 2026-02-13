@@ -9,7 +9,9 @@ if (!isset($_SESSION['segreto'])) {
     $_SESSION['storico'] = [];
 }
 
-// 2. Gestione del RESET
+// esegue un controllo sul parametro action
+//se vale reset significa che l'utente ha cliccato su quel pulsante
+//ed imposta l'array vuoto riportando l'urente a dashboard
 if (isset($_POST['action']) && $_POST['action'] === 'reset') {
     $_SESSION['guess'] = [];
     $_SESSION['storico'] = [];
@@ -18,12 +20,24 @@ if (isset($_POST['action']) && $_POST['action'] === 'reset') {
     exit;
 }
 
-// 3. Gestione dell'inserimento COLORE
-if (isset($_POST['colore'])) {
+// Gestione del tasto ANNULLA
+if (isset($_POST['action']) && $_POST['action'] === 'undo') {
+    if (!empty($_SESSION['guess'])) {
+        array_pop($_SESSION['guess']); // Rimuove l'ultimo colore inserito
+    }
+    header("Location: dashboard.php");
+    exit;
+}
+
+//se in color c'è un valore significa che l'utente ha cliccato uno dei pulsanti
+ if (isset($_POST['colore'])) {
+
+    //operazioni di sanificazione dell'input impostando in miniscolo e togliendo spazzi
     $colore = strtolower(trim($_POST['colore']));
 
     // Verifica che il colore sia valido e che non abbiamo già 4 colori
     if (in_array($colore, $arrayColori) && count($_SESSION['guess']) < 4) {
+        //[] è l'operatore di push    
         $_SESSION['guess'][] = $colore;
     }
 

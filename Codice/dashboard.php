@@ -8,8 +8,12 @@ if(!isset($_SESSION['loggato'])){
 }
 
 // Inizializzazione minima se si accede direttamente alla pagina
-if (!isset($_SESSION['guess'])) { $_SESSION['guess'] = []; }
-if (!isset($_SESSION['storico'])) { $_SESSION['storico'] = []; }
+if (!isset($_SESSION['guess'])) { 
+    $_SESSION['guess'] = []; 
+    }
+if (!isset($_SESSION['storico'])) {
+     $_SESSION['storico'] = []; 
+     }
 ?>
 
 <!DOCTYPE html>
@@ -26,16 +30,24 @@ if (!isset($_SESSION['storico'])) { $_SESSION['storico'] = []; }
             <h1>Mastermind </h1>
             <div class="buttons">
                 <form action="inputManagement.php" method="post">
-                    <button type="submit" name="action" value="reset" class="reset-btn">Nuova Partita / Reset</button>
+                    <button type="submit" name="action" value="reset" class="reset-btn">Nuova Partita</button>
                 </form>
                 <button class="logout-btn" onclick="window.location.href='logout.php';">Esci</button>
+                <form action="inputManagement.php" method="post">
+                <button type="submit" name="action" value="undo" class="undo-btn">Annulla Ultimo</button>
+                </form>
             </div>
         </div>
 
         <div class="campo">
             <h3>Il tuo tentativo attuale:</h3>
             <div class="celle">
-                <?php 
+                <?php
+                //inizio ciclo per iterare i colori
+                //controla con l'operatore ternario se esiste un colore in posizione i
+                //se esiste assegna a colore il valore corrispondende
+                //se non esiste gli assegna una stirnga vuota
+                 
                 for($i = 0; $i < 4; $i++){
                     $colore = isset($_SESSION['guess'][$i]) ? $_SESSION['guess'][$i] : '';
                     echo '<div class="cella ' . $colore . '"></div>';
@@ -44,6 +56,8 @@ if (!isset($_SESSION['storico'])) { $_SESSION['storico'] = []; }
             </div>
 
             <div class="controls">
+                <!-- Il valore di value è quello che inviamo col from action="..."-->
+                <!-- per controllare senza l'uso di javascript che pulsante l'utente ha cliccato -->
                 <form action="inputManagement.php" method="post" class="color-picker">
                     <button type="submit" name="colore" value="rosso" class="btn-rosso">Rosso</button>
                     <button type="submit" name="colore" value="verde" class="btn-verde">Verde</button>
