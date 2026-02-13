@@ -86,7 +86,10 @@ if(!isset($_SESSION['loggato'])){
                 </form>
 
                 <form action="inputManagement.php" method="post">
-                    <button type="submit" name="action" value="reset" class="reset-btn">Reset</button>
+                    <button type="submit" name="action" value="reset" class="bottone-reset">Reset</button>
+                </form>
+                <form action="inputManagement.php" method="post">
+                    <button type="submit" name="action" value="invio" class="bottone-invio">Invio</button>
                 </form>
             </div>
         </section>
