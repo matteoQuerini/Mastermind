@@ -37,6 +37,9 @@ if (!isset($_SESSION['storico'])) {
                 <button type="submit" name="action" value="undo" class="undo-btn">Annulla Ultimo</button>
                 </form>
             </div>
+            <form action="inputManagement.php" method="post">
+                    <button type="submit" name="action" value="undo" class="undo-btn">Annulla Ultimo</button>
+            </form>
         </div>
 
         <div class="campo">

@@ -333,3 +333,12 @@ h1, h3 {
 .bottone-logout:hover {
     background-color: #cc0056;
 }
+
+.undo-btn{
+
+    position: absolute;
+    top: 53%;
+    right: 38%;
+
+
+}
