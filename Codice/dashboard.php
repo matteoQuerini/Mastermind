@@ -24,7 +24,12 @@ if (!isset($_SESSION['storico'])) { $_SESSION['storico'] = []; }
     <div class="dashboard-container">
         <div class="dashboard-header">
             <h1>Mastermind </h1>
-            <button class="logout-btn" onclick="window.location.href='logout.php';">Esci</button>
+            <div class="buttons">
+                <form action="inputManagement.php" method="post">
+                    <button type="submit" name="action" value="reset" class="reset-btn">Nuova Partita / Reset</button>
+                </form>
+                <button class="logout-btn" onclick="window.location.href='logout.php';">Esci</button>
+            </div>
         </div>
 
         <div class="campo">
@@ -46,9 +51,7 @@ if (!isset($_SESSION['storico'])) { $_SESSION['storico'] = []; }
                     <button type="submit" name="colore" value="giallo" class="btn-giallo">Giallo</button>
                 </form>
                 
-                <form action="inputManagement.php" method="post">
-                    <button type="submit" name="action" value="reset" class="reset-btn">Nuova Partita / Reset</button>
-                </form>
+                
             </div>
         </div>
 
@@ -78,7 +81,9 @@ if (!isset($_SESSION['storico'])) { $_SESSION['storico'] = []; }
                     <?php 
                     // Messaggio di vittoria se l'utente ha fatto 4 neri
                     if ($tentativo['punteggio']['corretti'] == 4): ?>
-                        <div class="vittoria-messaggio"> HAI VINTO! HAI INDOVINATO IL CODICE!</div>
+                        <script>
+                            alert("Complimenti, hai vinto!");
+                        </script>
                     <?php endif; ?>
                 <?php endforeach; ?>
             <?php endif; ?>
