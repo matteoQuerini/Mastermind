@@ -16,4 +16,3 @@ if ($usernameInput === $username && password_verify($passwordInput, $passwordHas
     header("Location: index.html");
     exit;
 }
-?>

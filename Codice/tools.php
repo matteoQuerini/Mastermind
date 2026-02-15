@@ -1,11 +1,12 @@
 <?php
-/*funzione per la generazione casuale dei colori*/ 
+/*funzione per la generazione casuale dei colori*/
 $arrayColori = array("rosso", "verde", "blu", "giallo");
 
-function getRandomColor($arrayColori){
+function getRandomColor($arrayColori)
+{
     $colori_da_Indovinare = array();
 
-    for($i = 0; $i < 4; $i++){
+    for ($i = 0; $i < 4; $i++) {
         $randomInt = random_int(0, 3);
         $colori_da_Indovinare[$i] = $arrayColori[$randomInt];
     }
@@ -16,9 +17,10 @@ function getRandomColor($arrayColori){
 
 
 /*funzione che controlla se i colori sono presenti nell'array e se sono nella posizione corretta*/
-function checkGuess($randomColors, $userAnswer) {
-    $posizioniCorrette = 0; 
-    $soloPresenti = 0;      
+function checkGuess($randomColors, $userAnswer)
+{
+    $posizioniCorrette = 0;
+    $soloPresenti = 0;
 
     $tempSegreto = $randomColors;
     $tempUser = $userAnswer;
@@ -28,7 +30,7 @@ function checkGuess($randomColors, $userAnswer) {
     for ($i = 0; $i < 4; $i++) {
         if ($tempUser[$i] === $tempSegreto[$i]) {
             $posizioniCorrette++;
-        
+
             $tempSegreto[$i] = null;
             $tempUser[$i] = null;
         }
@@ -42,8 +44,8 @@ function checkGuess($randomColors, $userAnswer) {
         for ($j = 0; $j < 4; $j++) {
             if ($tempSegreto[$j] !== null && $tempUser[$i] === $tempSegreto[$j]) {
                 $soloPresenti++;
-                $tempSegreto[$j] = null; /*assegno a null per escluderlo dalla ricerca*/ 
-                break; 
+                $tempSegreto[$j] = null; /*assegno a null per escluderlo dalla ricerca*/
+                break;
             }
         }
     }
@@ -53,12 +55,3 @@ function checkGuess($randomColors, $userAnswer) {
         'presenti' => $soloPresenti
     ];
 }
-
-
-
-?>
-
-
-
-
-

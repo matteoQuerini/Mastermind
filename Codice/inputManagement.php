@@ -1,6 +1,8 @@
 <?php
 session_start();
-require_once 'tools.php'; 
+require_once 'tools.php';
+
+$counterTentativi = count($_SESSION['storico']); // Conta i tentativi fatti finora
 
 // 1. Inizializzazione del gioco
 if (!isset($_SESSION['segreto'])) {
@@ -30,7 +32,7 @@ if (isset($_POST['action']) && $_POST['action'] === 'undo') {
 }
 
 //se in color c'è un valore significa che l'utente ha cliccato uno dei pulsanti
- if (isset($_POST['colore'])) {
+if (isset($_POST['colore'])) {
 
     //operazioni di sanificazione dell'input impostando in miniscolo e togliendo spazzi
     $colore = strtolower(trim($_POST['colore']));
@@ -44,7 +46,7 @@ if (isset($_POST['action']) && $_POST['action'] === 'undo') {
     // 4. CONTROLLO AUTOMATICO: se arriviamo a 4 colori, verifichiamo il tentativo
     if (count($_SESSION['guess']) === 4) {
         $risultato = checkGuess($_SESSION['segreto'], $_SESSION['guess']);
-        
+
         // Salviamo il tentativo e il risultato nello storico
         $_SESSION['storico'][] = [
             'combinazione' => $_SESSION['guess'],
@@ -53,12 +55,17 @@ if (isset($_POST['action']) && $_POST['action'] === 'undo') {
 
         // Svuotiamo l'array temporaneo per il prossimo tentativo
         $_SESSION['guess'] = [];
+
+
+        if (count($_SESSION['storico']) >= 3) {
+            $_SESSION['guess'] = [];
+            $_SESSION['storico'] = [];
+            $_SESSION['segreto'] = getRandomColor($arrayColori);
+            echo '<script>alert("Hai perso, il gioco verrà resettato!"); window.location.href = "dashboard.php";</script>';
+            exit;
+        }
+        // Se si accede al file senza POST, torna in dashboard
+        header("Location: dashboard.php");
+        exit;
     }
-
-    header("Location: dashboard.php");
-    exit;
 }
-
-// Se si accede al file senza POST, torna in dashboard
-header("Location: dashboard.php");
-exit;
