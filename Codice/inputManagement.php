@@ -57,7 +57,7 @@ if (isset($_POST['colore'])) {
         $_SESSION['guess'] = [];
 
 
-        if (count($_SESSION['storico']) >= 3) {
+        if (count($_SESSION['storico']) >= 8) {
             $_SESSION['guess'] = [];
             $_SESSION['storico'] = [];
             $_SESSION['segreto'] = getRandomColor($arrayColori);
@@ -68,4 +68,7 @@ if (isset($_POST['colore'])) {
         header("Location: dashboard.php");
         exit;
     }
+
+    header("Location: dashboard.php");
+    exit;
 }
