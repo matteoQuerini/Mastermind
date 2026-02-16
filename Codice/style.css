@@ -5,11 +5,11 @@
 }
 
 body {
-    font-family: Arial, sans-serif;
-    background-color: #1a1a2e;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
     color: #fff;
+    min-height: 100vh;
 }
-
 
 .hero-section {
     min-height: 100vh;
@@ -17,20 +17,24 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: #16213e;
+    background: linear-gradient(135deg, #16213e 0%, #0f3460 100%);
     text-align: center;
+    padding: 20px;
 }
 
 .hero-content h1 {
     font-size: 3.5rem;
     margin-bottom: 20px;
     color: #00d4ff;
+    text-shadow: 0 0 20px rgba(0, 212, 255, 0.5);
+    letter-spacing: 2px;
 }
 
 .hero-content p {
     font-size: 1.2rem;
     margin-bottom: 40px;
     color: #ccc;
+    opacity: 0.9;
 }
 
 .homepage-buttons {
@@ -43,21 +47,24 @@ body {
 .btn {
     padding: 12px 30px;
     border: none;
-    border-radius: 5px;
+    border-radius: 8px;
     font-size: 1rem;
     font-weight: bold;
     cursor: pointer;
     text-decoration: none;
     display: inline-block;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
 .btn-primario {
-    background-color: #ff006e;
+    background: linear-gradient(135deg, #ff006e 0%, #ff4d94 100%);
     color: white;
 }
 
 .btn-primario:hover {
-    background-color: #cc0056;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(255, 0, 110, 0.4);
 }
 
 .btn-secondario {
@@ -66,9 +73,10 @@ body {
     border: 2px solid #00d4ff;
 }
 
-.btn-secondary:hover {
+.btn-secondario:hover {
     background-color: #00d4ff;
     color: #16213e;
+    transform: translateY(-3px);
 }
 
 .login-container {
@@ -77,15 +85,18 @@ body {
     align-items: center;
     justify-content: center;
     padding: 20px;
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
 }
 
 .login-card {
     width: 100%;
     max-width: 400px;
-    background-color: #16213e;
+    background-color: rgba(22, 33, 62, 0.95);
     border: 2px solid #00d4ff;
-    border-radius: 10px;
+    border-radius: 15px;
     padding: 40px;
+    box-shadow: 0 8px 32px rgba(0, 212, 255, 0.1);
+    backdrop-filter: blur(10px);
 }
 
 .login-card h2 {
@@ -93,6 +104,7 @@ body {
     margin-bottom: 10px;
     color: #00d4ff;
     font-size: 2rem;
+    text-shadow: 0 0 10px rgba(0, 212, 255, 0.3);
 }
 
 .login-card p {
@@ -100,7 +112,6 @@ body {
     margin-bottom: 30px;
     color: #999;
 }
-
 
 form {
     display: flex;
@@ -116,37 +127,46 @@ label {
     display: block;
     margin-bottom: 8px;
     color: #ccc;
-    font-weight: bold;
+    font-weight: 600;
 }
 
 input[type="text"],
 input[type="password"] {
     width: 100%;
-    padding: 10px;
-    border: 1px solid #00d4ff;
-    border-radius: 5px;
-    background-color: #0f3460;
+    padding: 12px;
+    border: 1.5px solid #00d4ff;
+    border-radius: 8px;
+    background-color: rgba(15, 52, 96, 0.7);
     color: #fff;
     font-size: 1rem;
+    transition: all 0.3s ease;
 }
 
 input[type="text"]:focus,
 input[type="password"]:focus {
     outline: none;
     border-color: #ff006e;
-    background-color: #1a1a2e;
+    background-color: rgba(26, 26, 46, 0.9);
+    box-shadow: 0 0 15px rgba(255, 0, 110, 0.2);
 }
 
 input[type="submit"] {
-    padding: 10px;
-    background-color: #ff006e;
+    padding: 12px;
+    background: linear-gradient(135deg, #ff006e 0%, #ff4d94 100%);
     color: white;
     border: none;
-    border-radius: 5px;
+    border-radius: 8px;
     font-size: 1rem;
     font-weight: bold;
     cursor: pointer;
     margin-top: 20px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(255, 0, 110, 0.2);
+}
+
+input[type="submit"]:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 0, 110, 0.4);
 }
 
 .credentials {
@@ -156,26 +176,46 @@ input[type="submit"] {
     color: #999;
 }
 
-
-
 h1,
 h3 {
     text-align: center;
     width: 100%;
 }
 
+.dashboard-container {
+    padding: 20px;
+}
+
 .dashboard-header {
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: center;
-    margin: 40px;
+    justify-content: space-between;
+    margin: 30px 0;
     font-size: 30px;
+    flex-wrap: wrap;
 }
 
 .dashboard-header h1 {
     color: #00d4ff;
     text-align: start;
+    text-shadow: 0 0 15px rgba(0, 212, 255, 0.3);
+    flex: 1;
+}
+
+.campo {
+    background: rgba(22, 33, 62, 0.8);
+    padding: 30px;
+    border-radius: 15px;
+    margin: 20px 0;
+    border: 1px solid rgba(0, 212, 255, 0.2);
+}
+
+.campo p {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 1.1rem;
+    color: #00d4ff;
 }
 
 .celle {
@@ -184,14 +224,21 @@ h3 {
     gap: 15px;
     margin: 20px 0;
     padding-left: 0;
+    flex-wrap: wrap;
 }
 
 .cella {
     width: 50px;
     height: 50px;
-    border-radius: 15px;
+    border-radius: 12px;
     border: 2px solid #fff;
     display: inline-block;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    transition: all 0.2s ease;
+}
+
+.cella:not(:empty) {
+    transform: scale(1.05);
 }
 
 .controls {
@@ -200,70 +247,77 @@ h3 {
     align-items: center;
     gap: 20px;
     width: 100%;
-    padding-bottom: 100px;
+    padding: 20px 0;
 }
-
-
 
 .color-picker {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    justify-content: center;
-    gap: 10px;
-    padding-top: 40px;
-    padding-left: 0;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 12px;
+    padding-top: 20px;
+    max-width: 600px;
+    width: 100%;
+    margin: 0 auto;
 }
 
 .buttons {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    position: relative;
-    left: 0;
-    bottom: 0;
+    gap: 10px;
+    flex-wrap: wrap;
 }
-
 
 .cella.rosso,
 .mini-cella.rosso,
 .btn-rosso {
-    background-color: red;
+    background-color: #e74c3c;
 }
 
 .cella.verde,
 .mini-cella.verde,
 .btn-verde {
-    background-color: green;
+    background-color: #27ae60;
 }
 
 .cella.blu,
 .mini-cella.blu,
 .btn-blu {
-    background-color: blue;
+    background-color: #3498db;
 }
 
 .cella.giallo,
 .mini-cella.giallo,
 .btn-giallo {
-    background-color: yellow;
+    background-color: #f39c12;
 }
 
 .btn-rosso,
 .btn-verde,
 .btn-blu,
 .btn-giallo {
-    padding: 20px 70px;
-    margin: 10px;
-    font-size: 17px;
+    padding: 15px 40px;
+    margin: 8px;
+    font-size: 15px;
     font-weight: bold;
     color: white;
     border-radius: 10px;
     border: none;
     cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.btn-rosso:hover,
+.btn-verde:hover,
+.btn-blu:hover,
+.btn-giallo:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
 }
 
 .btn-giallo {
-    color: black;
+    color: #1a1a2e;
 }
 
 .mini-cella {
@@ -271,20 +325,29 @@ h3 {
     height: 30px;
     border: 1px solid #333;
     display: inline-block;
-    margin: 1px;
+    margin: 2px;
+    border-radius: 6px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
 }
 
 .storico-container {
-    margin: 20px;
+    margin: 30px 0;
+    padding: 20px;
+    background: rgba(22, 33, 62, 0.8);
+    border-radius: 15px;
+    border: 1px solid rgba(0, 212, 255, 0.2);
 }
 
 .storico-container h3 {
     padding-bottom: 20px;
+    color: #00d4ff;
+    text-shadow: 0 0 10px rgba(0, 212, 255, 0.2);
 }
 
 .risultato-testo {
     padding-left: 20px;
     padding-bottom: 30px;
+    color: #ccc;
 }
 
 .riga-storico {
@@ -292,23 +355,41 @@ h3 {
     flex-direction: row;
     align-items: center;
     justify-content: center;
+    gap: 20px;
+    padding: 15px;
+    background: rgba(0, 212, 255, 0.05);
+    border-radius: 10px;
+    margin-bottom: 10px;
 }
 
+hr {
+    border: none;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #00d4ff, transparent);
+    margin: 30px 0;
+}
 
 .logout-btn,
 .reset-btn,
 .undo-btn {
     margin-left: 10px;
-    padding: 10px 15px;
-    border-radius: 5px;
-    background-color: #ff006e;
+    padding: 10px 18px;
+    border-radius: 8px;
+    background: linear-gradient(135deg, #ff006e 0%, #ff4d94 100%);
     color: white;
     font-weight: bold;
     border: none;
     cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(255, 0, 110, 0.2);
 }
 
-
+.logout-btn:hover,
+.reset-btn:hover,
+.undo-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(255, 0, 110, 0.4);
+}
 
 .exit {
     display: none;
@@ -318,10 +399,11 @@ h3 {
     max-width: 800px;
     margin: 50px auto;
     padding: 40px;
-    background-color: #16213e;
+    background: rgba(22, 33, 62, 0.95);
     border: 2px solid #00d4ff;
     border-radius: 15px;
-    line-height: 1.6;
+    line-height: 1.8;
+    box-shadow: 0 8px 32px rgba(0, 212, 255, 0.1);
 }
 
 .info-container h1 {
@@ -331,6 +413,7 @@ h3 {
     border-bottom: 2px solid #ff006e;
     display: inline-block;
     padding-bottom: 10px;
+    text-shadow: 0 0 10px rgba(0, 212, 255, 0.3);
 }
 
 .info-container h2 {
@@ -347,21 +430,239 @@ h3 {
     text-align: justify;
 }
 
-
 .bottone-logout {
     display: block;
     margin: 40px auto 0;
     padding: 12px 40px;
-    background-color: #ff006e;
+    background: linear-gradient(135deg, #ff006e 0%, #ff4d94 100%);
     color: white;
     border: none;
-    border-radius: 5px;
+    border-radius: 8px;
     font-weight: bold;
     cursor: pointer;
-    transition: background 0.3s;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(255, 0, 110, 0.2);
 }
 
 .bottone-logout:hover {
-    background-color: #cc0056;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(255, 0, 110, 0.4);
 }
 
+@media (max-width: 768px) {
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero-content p {
+        font-size: 1rem;
+    }
+
+    .homepage-buttons {
+        grid-template-columns: 1fr;
+        max-width: 300px;
+        margin: 0 auto;
+    }
+
+    .dashboard-header {
+        flex-direction: column;
+        gap: 20px;
+        margin: 20px 0;
+    }
+
+    .dashboard-header h1 {
+        text-align: center;
+        width: 100%;
+    }
+
+    .buttons {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .logout-btn,
+    .reset-btn,
+    .undo-btn {
+        width: 100%;
+        margin-left: 0;
+        margin-bottom: 10px;
+    }
+
+    .celle {
+        gap: 10px;
+    }
+
+    .cella {
+        width: 45px;
+        height: 45px;
+    }
+
+    .color-picker {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .btn-rosso,
+    .btn-verde,
+    .btn-blu,
+    .btn-giallo {
+        padding: 12px 30px;
+        margin: 5px;
+        font-size: 14px;
+    }
+
+    .riga-storico {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .risultato-testo {
+        padding-left: 0;
+        text-align: center;
+    }
+
+    .info-container {
+        margin: 20px;
+        padding: 25px;
+    }
+
+    .info-container h1 {
+        font-size: 2rem;
+    }
+
+    .info-container h2 {
+        font-size: 1.4rem;
+    }
+
+    .info-container p {
+        font-size: 1rem;
+    }
+
+    .login-card {
+        padding: 30px;
+        border-radius: 12px;
+    }
+
+    .login-card h2 {
+        font-size: 1.6rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-content h1 {
+        font-size: 2rem;
+        letter-spacing: 1px;
+    }
+
+    .hero-content p {
+        font-size: 0.95rem;
+        margin-bottom: 30px;
+    }
+
+    .btn {
+        padding: 10px 20px;
+        font-size: 0.95rem;
+    }
+
+    .dashboard-container {
+        padding: 10px;
+    }
+
+    .campo {
+        padding: 15px;
+        margin: 10px 0;
+    }
+
+    .campo p {
+        font-size: 0.95rem;
+    }
+
+    .celle {
+        gap: 8px;
+        margin: 15px 0;
+    }
+
+    .cella {
+        width: 40px;
+        height: 40px;
+    }
+
+    .color-picker {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    .btn-rosso,
+    .btn-verde,
+    .btn-blu,
+    .btn-giallo {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 5px 0;
+        font-size: 13px;
+    }
+
+    .storico-container {
+        margin: 15px 0;
+        padding: 15px;
+    }
+
+    .storico-container h3 {
+        font-size: 1.2rem;
+        padding-bottom: 15px;
+    }
+
+    .mini-cella {
+        width: 25px;
+        height: 25px;
+        margin: 1px;
+    }
+
+    .risultato-testo {
+        padding-left: 0;
+        padding-bottom: 15px;
+        font-size: 0.9rem;
+    }
+
+    .info-container {
+        margin: 15px;
+        padding: 20px;
+    }
+
+    .info-container h1 {
+        font-size: 1.8rem;
+    }
+
+    .info-container h2 {
+        font-size: 1.2rem;
+        margin-top: 20px;
+    }
+
+    .info-container p {
+        font-size: 0.95rem;
+    }
+
+    .bottone-logout {
+        padding: 10px 30px;
+        font-size: 0.9rem;
+    }
+
+    .login-card {
+        max-width: 100%;
+        padding: 20px;
+    }
+
+    .login-card h2 {
+        font-size: 1.4rem;
+    }
+
+    input[type="text"],
+    input[type="password"] {
+        padding: 10px;
+        font-size: 0.95rem;
+    }
+
+    input[type="submit"] {
+        padding: 10px;
+        font-size: 0.95rem;
+    }
+}
